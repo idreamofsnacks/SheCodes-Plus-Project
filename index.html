@@ -1,14 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 6</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Week 6 for GitHub</h1>
-    <script src="scripts.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Weather</title>
+		<!--link CSS sheet-->
+		<link rel="stylesheet" href="styles.css" />
+		<!--link Axios-->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<!--Link Bootstrap-->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+		<!--Link Google Fonts-->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<!--link bootstrap icons-->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+		/>
+	</head>
+	<body>
+		<div class="container">
+			<!--create the application title-->
+			<div class="appTitle">
+				<div class="row">
+					<div class="col-12">
+						<h1 id="title">Weather Forecast</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<!--convert-->
+					<span class="convert">
+						<a href id="celsius">Celsius</a>
+						<a href id="fahrenheit">Fahrenheit</a>
+					</span>
+				</div>
+			</div>
+			<!--create the navigation bar where Search is-->
+			<div class="navigation">
+				<nav
+					class="navbar navbar-light"
+					style="background-color: #212529"
+				>
+					<div class="container-fluid">
+						<form class="d-flex" id="searchForm">
+							<input
+								class="form-control me-2"
+								type="search"
+								placeholder="Search for a City"
+								aria-label="Search"
+								id="searchCities"
+							/>
+							<button
+								class="btn btn-outline-success"
+								type="submit"
+							>
+								Search
+							</button>
+						</form>
+						<p id="currentDateTime">
+						</p>
+					</div>
+				</nav>
+			</div>
+			<!--create the body layout-->
+			<div class="currentCity">
+				<div class="row">
+					<div class="col-9">
+						<!--displays on the left side of the current conditions-->
+						<div class="currentConditions">
+							<div class="card bg-light text-dark" style="width: 840px;">
+								<img
+									src="media/sustainable.jpg"
+									class="card-img"
+									alt="leave nothing behind"
+								/>
+								<div class="card-img-overlay">
+									<!--displays the name of the entered city-->
+									<h5 class="card-title" id="enteredCity">
+										Type in a City to see the weather
+									</h5>
+									<div class="temp" id="tempApi"><p></p></div>
+									<div class="temp" id="tempApiConditions"
+										><p></p></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-3">
+						<!--displays on the right side as a list-->
+						<div class="upcomingDays">
+							<ul class="list-group" id="nextDays">
+								<li class="list-group-item" id="monday">
+									Monday
+									<p>
+										<span class="tempWk" id="monTemp"
+											>72°
+										</span>
+										<span class="tempWk" id="monCond">
+											| <i class="bi bi-sun"></i
+										></span>
+									</p>
+								</li>
+								<li class="list-group-item" id="tuesday">
+									Tuesday
+									<p>
+										<span class="tempWk" id="tueTemp"
+											>72°</span
+										>
+										<span class="tempWk" id="tueCond"
+											>| <i class="bi bi-sun"></i
+										></span>
+									</p>
+								</li>
+								<li class="list-group-item" id="wednesday">
+									Wednesday
+									<p>
+										<span class="tempWk" id="wedTemp"
+											>75°</span
+										>
+										<span class="tempWk" id="wedCond"
+											>| <i class="bi bi-sun"></i
+										></span>
+									</p>
+								</li>
+								<li class="list-group-item" id="thursday">
+									Thursday
+									<p>
+										<span class="tempWk" id="thuTemp"
+											>78°</span
+										>
+										<span class="tempWk" id="thuCond"
+											>| <i class="bi bi-cloud-sun"></i
+										></span>
+									</p>
+								</li>
+								<li class="list-group-item" id="friday">
+									Friday
+									<p>
+										<span class="tempWk" id="friTemp"
+											>70°</span
+										>
+										<span class="tempWk" id="friCond"
+											>| <i class="bi bi-cloudy"></i
+										></span>
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--close the container-->
+		</div>
+	</body>
+	<!--links the javascript file-->
+	<script src="index.js"></script>
+	<!--links bootstrap js-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"
+	></script>
+	
 </html>

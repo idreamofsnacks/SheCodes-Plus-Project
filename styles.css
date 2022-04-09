@@ -1,3 +1,95 @@
-h1{
-    color: purple;
+body {
+	color: #fff;
+	font-family: "Source Sans Pro", sans-serif;
+}
+
+.appTitle #title {
+	color: #212529;
+	display: block;
+	font-family: "Roboto", sans-serif;
+	font-size: 60px;
+	font-weight: lighter;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.convert a {
+	color: rgb(89, 76, 0);
+}
+
+.convert a:hover {
+	color: blue;
+	transition: 14ms ease-in-out;
+}
+
+.navigation .navbar {
+	border-radius: 2px;
+	height: 60px;
+}
+
+.navigation .navbar button {
+	border: 1px solid black;
+	color: rgb(239, 239, 239);
+}
+
+.navigation .navbar #currentDateTime {
+	color: rgb(239, 239, 239);
+	display: block;
+	font-size: 14px;
+	position: right;
+}
+
+.currentCity .currentConditions .card {
+	background-color: #fff;
+	border: none;
+	border-radius: 2px;
+	text-transform: capitalize;
+}
+
+.currentCity .currentConditions .card img {
+	height: 610px;
+	opacity: 0.95;
+	width: 840px;
+}
+
+.currentCity .currentConditions .card-title {
+	border: none;
+	color: whitesmoke;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 70px;
+	font-weight: bolder;
+	margin-bottom: 0;
+	width: 425px;
+}
+
+.currentCity .currentConditions .card .card-img-overlay {
+	border: none;
+	color: whitesmoke;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 50px;
+	font-weight: bolder;
+	margin-top: 0;
+	width: 425px;
+}
+
+.currentCity .upcomingDays li {
+	border-bottom: 1px solid lightslategray;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	display: block;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 28px;
+	font-weight: lighter;
+}
+
+.currentCity .upcomingDays p {
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 24px;
+}
+
+.currentCity .upcomingDays i {
+	color: goldenrod;
+	font-size: 28px;
+	font-weight: bolder;
 }
