@@ -79,7 +79,8 @@ function search(event) {
 	let apiKey = "31552a699343e5496f02718f72996b3d";
 
 	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=imperial`;
-	/*the function used for pulling in the temperature API */
+
+
 
 	/*Display the timestamp for when the api was called */
 	function dateApi(timestamp){
@@ -94,9 +95,10 @@ function search(event) {
 		}
 		let days = ["Sunday","Monday", "Tuesday","Wednesday","Thursday","Friday","Saturday", "Sunday"];
 		let day = days[date.getDay()];
-		return `${day} at ${hours}:${minutes}`;
+			return `${day} | ${hours}:${minutes}`;
 	}
 
+	/*Display the temperature and conditions*/
 	function showTemp(response) {
 			console.log(response.data);
 
@@ -108,11 +110,13 @@ function search(event) {
 			let tempConditions = document.querySelector("#tempApiConditions");
 			/*timestamp for the api */
 			let dateFromApi = document.querySelector("#apiTime");
-
+			let iconElement = document.querySelector ("#tempIcon");
 
 			temperatureElement.innerHTML = `${tempFromApi}° F`;
 			tempConditions.innerHTML = response.data.weather[0].description;
 			dateFromApi.innerHTML = dateApi(response.data.dt * 1000);
+			iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
 		}
 		/*calls the function for the API to show the temp */
 		axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);

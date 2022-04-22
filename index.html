@@ -68,6 +68,7 @@
 								placeholder="Search for a City"
 								aria-label="Search"
 								id="searchCities"
+								autocomplete="off"
 							/>
 							<button
 								class="btn btn-outline-success"
@@ -101,7 +102,7 @@
 									<!--displays the temperature and conditions for the entered city-->
 									<div class="temp" id="tempApi"><p></p></div>
 									<div class="temp" id="tempApiConditions"
-										><p></p>
+										><p></p></div>
 									<!--displays the date and time that the weather api was called-->
 									<div class="apiTimeStamp">Last updated: <span class id="apiTime"></span></div>
 								</div>
@@ -110,7 +111,7 @@
 					</div>
 					<div class="col-3">
 						<!--displays on the right side as a list-->
-						<div class="upcomingDays">
+						<div class="upcomingDays" id="nextDaysSection">
 							<ul class="list-group" id="nextDays">
 								<li class="list-group-item" id="monday">
 									Monday
@@ -119,7 +120,7 @@
 											>72°
 										</span>
 										<span class="tempWk" id="monCond">
-											| <i class="bi bi-sun"></i
+											| <img src="http://openweathermap.org/img/wn/01d@2x.png" id="tempIcon"></i
 										></span>
 									</p>
 								</li>
