@@ -72,6 +72,11 @@ body {
 	width: 425px;
 }
 
+.currentCity .currentConditions .card .card-img-overlay .apiTimeStamp{
+	background: #212529;
+	font-size: 14px;
+}
+
 .currentCity .upcomingDays li {
 	border-bottom: 1px solid lightslategray;
 	border-left: none;

@@ -38,7 +38,7 @@ if (minutes < 10) {
 
 function currentDateTime(today) {
 	let p = document.querySelector("#currentDateTime");
-	p.innerHTML = `${day}, ${month} ${date}, ${year} | ${hour}:${minutes}`;
+	p.innerHTML = `Today is ${day}, ${month} ${date}, ${year} | ${hour}:${minutes}`;
 }
 currentDateTime();
 
@@ -81,6 +81,22 @@ function search(event) {
 	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=imperial`;
 	/*the function used for pulling in the temperature API */
 
+	/*Display the timestamp for when the api was called */
+	function dateApi(timestamp){
+		let date =  new Date(timestamp);
+		let hours = date.getHours();
+		if (hours < 10){
+			hours = `0${hours}`;
+		}
+		let minutes = date.getMinutes();
+		if (minutes < 10){
+			minutes = `0${minutes}`;
+		}
+		let days = ["Sunday","Monday", "Tuesday","Wednesday","Thursday","Friday","Saturday", "Sunday"];
+		let day = days[date.getDay()];
+		return `${day} at ${hours}:${minutes}`;
+	}
+
 	function showTemp(response) {
 			console.log(response.data);
 
@@ -90,9 +106,12 @@ function search(event) {
 			let temperatureElement = document.querySelector("#tempApi");
 			/*displays the temperature's conditions */
 			let tempConditions = document.querySelector("#tempApiConditions");
+			/*timestamp for the api */
+			let dateFromApi = document.querySelector("#apiTime");
 
 			temperatureElement.innerHTML = `${tempFromApi}° F`;
 			tempConditions.innerHTML = response.data.weather[0].description;
+			dateFromApi.innerHTML = dateApi(response.data.dt * 1000);
 		}
 		/*calls the function for the API to show the temp */
 		axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
