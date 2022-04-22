@@ -53,10 +53,11 @@ body {
 }
 
 .currentCity .currentConditions .card-title {
+	background: #21252959;
 	border: none;
 	color: whitesmoke;
 	font-family: "Source Sans Pro", sans-serif;
-	font-size: 70px;
+	font-size: 55px;
 	font-weight: bolder;
 	margin-bottom: 0;
 	width: 425px;
@@ -66,14 +67,23 @@ body {
 	border: none;
 	color: whitesmoke;
 	font-family: "Source Sans Pro", sans-serif;
-	font-size: 50px;
+	font-size: 40px;
 	font-weight: bolder;
 	margin-top: 0;
 	width: 425px;
 }
 
+.currentCity .currentConditions .card .card-img-overlay img{
+	height: 20px;
+	width: 20px;
+}
+
+.currentCity .currentConditions .card .card-img-overlay .temp {
+	background: #21252959;
+}
+
 .currentCity .currentConditions .card .card-img-overlay .apiTimeStamp{
-	background: #212529;
+	background: #21252959;
 	font-size: 14px;
 }
 
