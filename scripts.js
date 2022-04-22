@@ -108,12 +108,11 @@ function search(event) {
 			let tempConditions = document.querySelector("#tempApiConditions");
 			/*timestamp for the api */
 			let dateFromApi = document.querySelector("#apiTime");
-			let iconElement = document.querySelector("#tempApiIcon");
+
 
 			temperatureElement.innerHTML = `${tempFromApi}° F`;
 			tempConditions.innerHTML = response.data.weather[0].description;
 			dateFromApi.innerHTML = dateApi(response.data.dt * 1000);
-			iconElement.setAttribute("src",`http://openweathermap.org/img/wn/10d@2x.png`);
 		}
 		/*calls the function for the API to show the temp */
 		axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
