@@ -48,9 +48,9 @@
 			<div class="row">
 				<div class="col-3">
 					<!--convert-->
-					<span class="convert">
-						<a href id="celsius">Celsius</a>
-						<a href id="fahrenheit">Fahrenheit</a>
+					<span class="convert">Display Temperature in:  
+						<a href id="celsius">°C |</a>
+						<a href id="fahrenheit" class="active">°F</a>
 					</span>
 				</div>
 			</div>
@@ -99,10 +99,13 @@
 									<h5 class="card-title" id="enteredCity">
 										Type in a City to see the weather
 									</h5>
-									<!--displays the temperature and conditions for the entered city-->
+									<!--displays the temperature,wind speed, and conditions for the entered city-->
 									<div class="temp" id="tempApi"><p></p></div>
-									<div class="temp" id="tempApiConditions"
-										><p></p></div>
+									<div class="temp" id="windApi"><p></p></div>
+									<div class="temp" id="tempApiIcon">
+										<img src="" id="tempIcon" alt="search">
+										<span class="temp" id="tempApiConditions"
+										><p></p></span></div>
 									<!--displays the date and time that the weather api was called-->
 									<div class="apiTimeStamp">Last updated: <span class id="apiTime"></span></div>
 								</div>
@@ -120,8 +123,7 @@
 											>72°
 										</span>
 										<span class="tempWk" id="monCond">
-											| <img src="http://openweathermap.org/img/wn/01d@2x.png" id="tempIcon"></i
-										></span>
+											| <img src="http://openweathermap.org/img/wn/01d@2x.png" id="tempIconMonday"></span>
 									</p>
 								</li>
 								<li class="list-group-item" id="tuesday">

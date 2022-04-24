@@ -45,25 +45,6 @@ currentDateTime();
 let form = document.querySelector("#searchForm");
 form.addEventListener("submit", search);
 
-/*Functionality for convert to Celsius*/
-function convertCelsius(event) {
-	event.preventDefault();
-	let a = document.querySelector("#celsius");
-	let p = document.querySelector("#temp");
-	p.innerHTML = `17° C`;
-}
-let convertLinkCelsius = document.querySelector("#celsius");
-convertLinkCelsius.addEventListener("click", convertCelsius);
-
-/*Functionality for convert to Fahrenheit */
-function convertFahrenheit(event) {
-	event.preventDefault();
-	let a = document.querySelector("#fahrenheit");
-	let p = document.querySelector("#temp");
-	p.innerHTML = `65°F`;
-}
-let convertLinkFahrenheit = document.querySelector("#fahrenheit");
-convertLinkFahrenheit.addEventListener("click", convertFahrenheit);
 
 /*Functionality for the search engine */
 function search(event) {
@@ -98,14 +79,20 @@ function search(event) {
 			return `${day} | ${hours}:${minutes}`;
 	}
 
-	/*Display the temperature and conditions*/
+	let tempFromApi = null; 
+
+	/*Display the temperature and conditions. Sub-function is to convert the temperatures to Celsius and Fahrenheit*/
 	function showTemp(response) {
 			console.log(response.data);
 
 			/*rounds the temperature received */
-			let tempFromApi = Math.round(response.data.main.temp);
+			tempFromApi = Math.round(response.data.main.temp);
+			/*rounds the wind speed */
+			windFromApi = Math.round(response.data.wind.speed);
 			/*updates the weather page with the API's temperature values */
 			let temperatureElement = document.querySelector("#tempApi");
+			/*adds in the wind speed from the API */
+			let windSpeed = document.querySelector("#windApi");
 			/*displays the temperature's conditions */
 			let tempConditions = document.querySelector("#tempApiConditions");
 			/*timestamp for the api */
@@ -113,6 +100,7 @@ function search(event) {
 			let iconElement = document.querySelector ("#tempIcon");
 
 			temperatureElement.innerHTML = `${tempFromApi}° F`;
+			windSpeed.innerHTML = `Wind Speed: ${windFromApi} mph`;
 			tempConditions.innerHTML = response.data.weather[0].description;
 			dateFromApi.innerHTML = dateApi(response.data.dt * 1000);
 			iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
@@ -120,4 +108,30 @@ function search(event) {
 		}
 		/*calls the function for the API to show the temp */
 		axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
+
+		/*Functionality for Fahrenheit to Celsius*/
+		function convertFahrenheitToCelsius(event) {
+			event.preventDefault();
+			/*remove the active class from fahrenheit and add to celsius*/
+			convertLinkFahrenheit.classList.remove("active");
+			convertLinkCelsius.classList.add("active"); 
+			let calculatedCelsiusTemp = document.querySelector("#tempApi");
+			let convertToCelsiusCalculation = Math.round(((tempFromApi) - 32)*(5 / 9));
+			calculatedCelsiusTemp.innerHTML = `${convertToCelsiusCalculation} °C`;
+		}
+		let convertLinkCelsius = document.querySelector("#celsius");
+		convertLinkCelsius.addEventListener("click", convertFahrenheitToCelsius);
+		
+		/*Functionality for convert to Celsius to Fahrenheit*/
+		function convertCelsiusToFahrenheit(event) {
+			event.preventDefault();
+			/*add the active class to fahrenheit and remove from celsius*/
+			convertLinkFahrenheit.classList.add("active");
+			convertLinkCelsius.classList.remove("active"); 
+			let defaultFTempElement = document.querySelector("#tempApi");
+			defaultFTempElement.innerHTML = `${tempFromApi} °F`;
+		}
+		let convertLinkFahrenheit = document.querySelector("#fahrenheit");
+		convertLinkFahrenheit.addEventListener("click", convertCelsiusToFahrenheit);
 }
+

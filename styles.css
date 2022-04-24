@@ -14,12 +14,24 @@ body {
 }
 
 .convert a {
-	color: rgb(89, 76, 0);
+	color: blue;
 }
 
 .convert a:hover {
-	color: blue;
+	color: goldenrod;
 	transition: 14ms ease-in-out;
+}
+
+.convert .active {
+	color: rgb(53, 52, 52);
+	cursor: default;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.convert .active:hover{
+	color: darkslategray;
+	cursor: default;
 }
 
 .navigation .navbar {
@@ -46,6 +58,15 @@ body {
 	text-transform: capitalize;
 }
 
+.currentCity .currentConditions .card #tempApiIcon img{
+	height: 115px;
+	width: 130px;
+}
+
+.currentCity .currentConditions .card #windApi{
+	text-transform: none;
+}
+
 .currentCity .currentConditions .card img {
 	height: 610px;
 	opacity: 0.95;
@@ -61,31 +82,32 @@ body {
 	font-weight: bolder;
 	margin-bottom: 0;
 	padding: 10px;
-	width: 390px;
+	width: 440px;
 }
 
 .currentCity .currentConditions .card .card-img-overlay {
 	border: none;
 	color: whitesmoke;
 	font-family: "Source Sans Pro", sans-serif;
-	font-size: 40px;
+	font-size: 30px;
 	font-weight: bolder;
 	margin-top: 0;
 	padding: 10px;
-	width: 390px;
+	width: 440px;
 }
 
 .currentCity .currentConditions .card .card-img-overlay .temp {
 	background: #21252959;
+	border: none;
 	padding: 10px;
-	width: 390px;
+	width: 440px;
 }
 
 .currentCity .currentConditions .card .card-img-overlay .apiTimeStamp{
 	background: #21252959;
 	font-size: 14px;
 	padding: 10px;
-	width: 390px;
+	width: 440px;
 }
 
 
