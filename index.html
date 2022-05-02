@@ -85,8 +85,8 @@
 			<!--create the body layout-->
 			<div class="currentCity">
 				<div class="row">
-					<div class="col-9">
-						<!--displays on the left side of the current conditions-->
+					<div class="col-12">
+						<!--displays the current conditions-->
 						<div class="currentConditions">
 							<div
 								class="card bg-light text-dark"
@@ -126,85 +126,44 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-3">
-						<!--displays on the right side as a list-->
-						<div class="upcomingDays" id="nextDaysSection">
-							<ul class="list-group" id="nextDays">
-								<li class="list-group-item" id="monday">
-									Monday
-									<p>
-										<span class="tempWk" id="monTemp"
-											>72°
-										</span>
-										<span class="tempWk" id="monCond">
-											|
-											<img
-												src="http://openweathermap.org/img/wn/01d@2x.png"
-												id="tempIconMonday"
-										/></span>
-									</p>
-								</li>
-								<li class="list-group-item" id="tuesday">
-									Tuesday
-									<p>
-										<span class="tempWk" id="tueTemp"
-											>72°</span
-										>
-										<span class="tempWk" id="tueCond"
-											>| <i class="bi bi-sun"></i
-										></span>
-									</p>
-								</li>
-								<li class="list-group-item" id="wednesday">
-									Wednesday
-									<p>
-										<span class="tempWk" id="wedTemp"
-											>75°</span
-										>
-										<span class="tempWk" id="wedCond"
-											>| <i class="bi bi-sun"></i
-										></span>
-									</p>
-								</li>
-								<li class="list-group-item" id="thursday">
-									Thursday
-									<p>
-										<span class="tempWk" id="thuTemp"
-											>78°</span
-										>
-										<span class="tempWk" id="thuCond"
-											>| <i class="bi bi-cloud-sun"></i
-										></span>
-									</p>
-								</li>
-								<li class="list-group-item" id="friday">
-									Friday
-									<p>
-										<span class="tempWk" id="friTemp"
-											>70°</span
-										>
-										<span class="tempWk" id="friCond"
-											>| <i class="bi bi-cloudy"></i
-										></span>
-									</p>
-								</li>
-							</ul>
+				</div>
+			</div>
+			<!--displays the daily forecast-->
+			<div class="weather-forecast">
+				<div class="row">
+					<div class="col-2">
+						<div class="weather-forecast-date">Thursday</div>
+						<img
+							src="http://openweathermap.org/img/wn/50d@2x.png"
+							alt=""
+							width="36"
+						/>
+						<div class="weather-forecast-temperatures">
+							<span class="weather-forecast-temperature-max">
+								Max: 70°
+							</span>
+							<span class="weather-forecast-temperature-min">
+								Min: 40°
+							</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12">
-					<span class="myGitCode">
-						<a
-							href="https://github.com/idreamofsnacks/SheCodes-Plus-Project.git"
-							target="_blank"
-							>View Site's Git Repository</a
-						>
-					</span>
+			<!--my git code link-->
+			<div class="myGit">
+				<div class="row">
+					<div class="col-12">
+						<span class="myGitCode">
+							<a
+								href="https://github.com/idreamofsnacks/SheCodes-Plus-Project.git"
+								target="_blank"
+								>View Site's Git Repository</a
+							>
+						</span>
+					</div>
 				</div>
 			</div>
-			<!--close the container-->
+			<!--closes the container-->
 		</div>
 	</body>
 	<!--links the javascript file-->

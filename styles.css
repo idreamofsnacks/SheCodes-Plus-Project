@@ -29,7 +29,7 @@ body {
 	text-decoration: none;
 }
 
-.convert .active:hover{
+.convert .active:hover {
 	color: darkslategray;
 	cursor: default;
 }
@@ -58,12 +58,12 @@ body {
 	text-transform: capitalize;
 }
 
-.currentCity .currentConditions .card #tempApiIcon img{
+.currentCity .currentConditions .card #tempApiIcon img {
 	height: 115px;
 	width: 130px;
 }
 
-.currentCity .currentConditions .card #windApi{
+.currentCity .currentConditions .card #windApi {
 	text-transform: none;
 }
 
@@ -103,32 +103,28 @@ body {
 	width: 440px;
 }
 
-.currentCity .currentConditions .card .card-img-overlay .apiTimeStamp{
+.currentCity .currentConditions .card .card-img-overlay .apiTimeStamp {
 	background: #21252959;
 	font-size: 14px;
 	padding: 10px;
 	width: 440px;
 }
 
-
-.currentCity .upcomingDays li {
-	border-bottom: 1px solid lightslategray;
-	border-left: none;
-	border-top: none;
-	border-right: none;
-	display: block;
-	font-family: "Source Sans Pro", sans-serif;
-	font-size: 28px;
-	font-weight: lighter;
+.weather-forecast {
+	border: 1px solid lightgray;
+	margin-top: 20px;
+	text-align: center;
 }
 
-.currentCity .upcomingDays p {
-	font-family: "Source Sans Pro", sans-serif;
-	font-size: 24px;
+.weather-forecast-date {
+	color: #21252959;
+	font-size: 18px;
 }
 
-.currentCity .upcomingDays i {
-	color: goldenrod;
-	font-size: 28px;
-	font-weight: bolder;
+.weather-forecast-temperatures {
+	font-size: 14px;
+}
+
+.myGit {
+	margin-top: 20px;
 }

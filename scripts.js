@@ -92,7 +92,7 @@ function search(event) {
 
 	/*Display the temperature and conditions. Sub-function is to convert the temperatures to Celsius and Fahrenheit*/
 	function showTemp(response) {
-		console.log(response.data.daily);
+		console.log(response.data);
 
 		/*send the coordinates */
 		getForecast(response.data.coord);
@@ -148,6 +148,23 @@ function search(event) {
 	let convertLinkFahrenheit = document.querySelector("#fahrenheit");
 	convertLinkFahrenheit.addEventListener("click", convertCelsiusToFahrenheit);
 
+	function formatDay(timestamp) {
+		let date = new Date(timestamp * 1000);
+		let day = date.getDay();
+		let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+		return days[day];
+	}
+	/*Create a new function for displaying the daily forecast */
+	function displayForecast(response) {
+		let forecast = response.data.daily;
+
+		let forecastElement = document.querySelector("#forecast");
+
+		forecastHTML = forecastHTML + `</div>`;
+		forecastElement.innerHTML = forecastHTML;
+	}
+
 	/*create the getForecast function to pass the latitude and longitude*/
 	function getForecast(coordinates) {
 		console.log(coordinates);
@@ -156,6 +173,6 @@ function search(event) {
 		let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
 
 		console.log(apiUrl);
-		axios.get(apiUrl).then(showTemp);
+		axios.get(apiUrl).then(displayForecast);
 	}
 }
